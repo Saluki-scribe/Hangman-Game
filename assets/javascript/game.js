@@ -1,6 +1,6 @@
 var wins = 0; 
 var guessesRemaining = 10;
-var alreadyGuessed = [];
+var alreadyGuessed = [""];
 var currentWord;
 var currentChosenPokemon = [];
 var currentChosenDisplay = [];
@@ -34,25 +34,37 @@ console.log("Should show blank spaces" + currentChosenDisplay + " " + "length: "
 
 document.onkeyup = function (event) {
     var userChoice = event.key;
+    var noWrite = alreadyGuessed.indexOf(userChoice);
 
+    console.log("userChoice: " + userChoice);
+    console.log("alreadyGuessed value: " + alreadyGuessed);
+    console.log("NoWrite Value: " + noWrite);
+    
 //Prints the letters that the user already guessed to the browser display.
 
-    if(guessesRemaining > 0){
+    if(guessesRemaining > 0 && userChoice != noWrite){
     
     alreadyGuessed.push(" " + userChoice + " ");
     var properDisplay = alreadyGuessed.join(" ");
     document.getElementById("already-guessed").innerText = properDisplay;
     } 
 
-    if(){
-        
+//Replace underscore with words guessed correctly
+
+  /*  if(){
+
     }
 
+//WIN Conditions
+
+   if(){
+
+    }
+*/
 
 } /*End Master Function*/
 
 
-//IF letter is part of alreadyGuessed, don't do anything. Set as parameter for first part.
 
 
 
